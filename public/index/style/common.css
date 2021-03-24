@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "pingFangSC-Regular";
+  src: url("./HelveticaNeue.ttf");
+}
+html,
+body {
+  height: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-family: PingFangSC-Regular, sans-serif;
+  user-select: none;
+}
+
+#app {
+  height: 100%;
+}

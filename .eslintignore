@@ -1,0 +1,7 @@
+.svn
+node_modules
+**/node_modules
+dist
+*.bundle.js
+*.min.js
+**/dist

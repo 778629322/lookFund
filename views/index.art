@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>涨跌日历</title>
+    <script>
+    var path = "{{path}}";
+</script>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="{{ path }}/public/index/dist/index.bundle.js"></script>
+</body>
+
+</html>

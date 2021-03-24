@@ -1,0 +1,15 @@
+/* 全局变量 */
+
+$color:'red';
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$baseFontSize:75px;
+
+@function toRem($px) {
+    @return $px/$baseFontSize*1rem;
+}
