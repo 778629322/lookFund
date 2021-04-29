@@ -96,13 +96,13 @@ export default {
     },
     async getThsFundInfo() {
       const { fundCode } = this.$route.params;
-      const data = await api.getThsFundInfo(fundCode);
+      const data = await api.getTTFundInfo(fundCode);
       const arr = data.split(",");
       const today = dayjs(arr[7]).format("YYYY/MM/DD");
       const lastDay = dayjs(this.lastData.date).get("day");
       const yesterday = this.weeks[lastDay].data;
       const lastData = yesterday[yesterday.length - 1];
-      if (data && new Date(today).getTime() > new Date(lastData[0]).getTime()) {
+      if (data && +new Date(today) > +new Date(lastData[0])) {
         let lastAcc = lastData[1];
         const getDay = dayjs(today).get("day");
         const week = this.weeks[getDay].data;

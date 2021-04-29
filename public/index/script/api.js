@@ -48,7 +48,7 @@ export async function getThsFundHistory(option) {
 }
 
 /**
- * 基金实时数据  var 基金代码="名称，时间，最新估值，单位净值，累计单位净值，五分钟涨速(乘100后的)，涨跌幅(乘100后的)，日期"
+ * 新浪基金实时数据  var 基金代码="名称，时间，最新估值，单位净值，累计单位净值，五分钟涨速(乘100后的)，涨跌幅(乘100后的)，日期"
  * @param {String} code - 基金代码
  * @return {Promise} String
  */
@@ -61,6 +61,25 @@ export function getThsFundInfo(code) {
     script.onload = () => {
       let key = `hq_str_fu_${code}`;
       resolve(window[key]);
+      script.parentNode.removeChild(script);
+    };
+    const head = document.head;
+    head.insertBefore(script, head.firstChild);
+  });
+}
+
+//天天基金实时数据
+export function getTTFundInfo(code) {
+  return new Promise((resolve) => {
+    const url = `http://fundgz.1234567.com.cn/js/${code}.js?rt=${+new Date()}`;
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = url;
+    window.jsonpgz = function(obj) {
+      let txt = `${obj.name},${obj.gztime},${obj.gsz},${obj.dwjz},${obj.dwjz},,${obj.gszzl},${obj.gztime}`;
+      resolve(txt);
+    };
+    script.onload = () => {
       script.parentNode.removeChild(script);
     };
     const head = document.head;
