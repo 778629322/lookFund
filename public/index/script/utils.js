@@ -16,6 +16,22 @@ function returnFloat(value) {
     return value;
   }
 }
+
+const bodyZoom = function() {
+  const bodyW = document.body.clientWidth;
+  const screenW = screen.width;
+  let radio = screenW / bodyW;
+  const boxW = bodyW * radio;
+
+  let zoom;
+  if (bodyW > 1800) {
+    zoom = 1 + (boxW - 1800) / 165 / 10;
+  } else {
+    zoom = 1 - (1800 - boxW) / 165 / 10;
+  }
+  document.body.style.zoom = zoom;
+};
+
 export const numberFormat = function(value) {
   if (!value) return "0";
   var param = {

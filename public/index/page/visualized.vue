@@ -85,7 +85,7 @@ export default {
 		},
 		async getThsFundHistory() {
 			const { fundCode } = this.$route.params
-			const data = await api.getThsFundHistory({ code: fundCode })
+			const { data } = await api.getThsFundHistory({ code: fundCode })
 			data.reverse().map((item) => {
 				const getDay = new Date(item.date).getDay()
 				const curWeek = this.weeks[getDay]
