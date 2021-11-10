@@ -138,7 +138,6 @@ export default {
 		// 年限
 		ageLimit() {
 			const { data } = this.history
-			console.log(data)
 			const startYear = dayjs(data[data.length - 1].date).format('YYYY')
 			const endYear = dayjs(data[0].date).format('YYYY')
 			for (let i = startYear; i <= endYear; i++) {
